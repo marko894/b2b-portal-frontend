@@ -281,6 +281,7 @@ export default function AdminOrdersPage() {
         <Modal
           onClose={() => setModal(null)}
           title={modal.mode === 'edit' ? `Izmena porudžbenice #${modal.orderId}` : 'Nova porudžbenica'}
+          className="max-w-2xl overflow-x-hidden"
         >
           <div className="space-y-4">
             {/* User selector — only for create */}
@@ -336,7 +337,7 @@ export default function AdminOrdersPage() {
               <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Dodaj proizvod</p>
               <div className="flex gap-2">
                 <select value={addProductId} onChange={(e) => setAddProductId(e.target.value ? Number(e.target.value) : '')}
-                  className={`flex-1 ${inputCls}`}>
+                  className={`w-[70%] ${inputCls}`}>
                   <option value="">— Izaberi proizvod —</option>
                   {products.filter((p) => p.stockQuantity > 0).map((p) => (
                     <option key={p.id} value={p.id}>
